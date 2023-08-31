@@ -1,0 +1,96 @@
+[gd_scene load_steps=15 format=3 uid="uid://iav4nlttqpim"]
+
+[ext_resource type="Script" path="res://scenes/ball.gd" id="1_ju1um"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_6uoiw"]
+
+[sub_resource type="Gradient" id="Gradient_p1n7i"]
+colors = PackedColorArray(0.247059, 0, 0, 1, 1, 0.0941176, 0.278431, 1)
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_mu1jh"]
+fractal_octaves = 10
+fractal_lacunarity = 2.085
+fractal_gain = 0.69
+domain_warp_enabled = true
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_1j4bi"]
+seamless = true
+color_ramp = SubResource("Gradient_p1n7i")
+noise = SubResource("FastNoiseLite_mu1jh")
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_kx8bf"]
+fractal_octaves = 10
+fractal_lacunarity = 2.085
+fractal_gain = 0.69
+domain_warp_enabled = true
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_fb145"]
+seamless = true
+as_normal_map = true
+noise = SubResource("FastNoiseLite_kx8bf")
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_yd7rk"]
+fractal_octaves = 10
+fractal_lacunarity = 2.085
+fractal_gain = 0.69
+domain_warp_enabled = true
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_iwvki"]
+seamless = true
+noise = SubResource("FastNoiseLite_yd7rk")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_a5yf5"]
+albedo_texture = SubResource("NoiseTexture2D_1j4bi")
+metallic_specular = 1.0
+normal_enabled = true
+normal_scale = 0.15
+normal_texture = SubResource("NoiseTexture2D_fb145")
+clearcoat_enabled = true
+clearcoat_roughness = 0.11
+refraction_texture = SubResource("NoiseTexture2D_iwvki")
+refraction_texture_channel = 4
+
+[sub_resource type="SphereMesh" id="SphereMesh_s3cc4"]
+material = SubResource("StandardMaterial3D_a5yf5")
+radius = 0.1
+height = 0.2
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_jkxje"]
+radius = 0.1
+
+[sub_resource type="BoxMesh" id="BoxMesh_5d5sk"]
+size = Vector3(0.02, 0.01, 2.5)
+
+[sub_resource type="BoxMesh" id="BoxMesh_mkyjx"]
+size = Vector3(0.01, 0.01, 0.95)
+
+[node name="Ball" type="RigidBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.3, 0)
+mass = 7.0
+physics_material_override = SubResource("PhysicsMaterial_6uoiw")
+script = ExtResource("1_ju1um")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+mesh = SubResource("SphereMesh_s3cc4")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("SphereShape3D_jkxje")
+
+[node name="ArrowMesh" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.07, -1.56)
+mesh = SubResource("BoxMesh_5d5sk")
+
+[node name="ArrowMesh2" type="MeshInstance3D" parent="ArrowMesh"]
+transform = Transform3D(0.996194, 0, -0.0871557, 0, 1, 0, 0.0871557, 0, 0.996194, -0.04, 0, -0.78)
+mesh = SubResource("BoxMesh_mkyjx")
+skeleton = NodePath("../..")
+
+[node name="ArrowMesh3" type="MeshInstance3D" parent="ArrowMesh"]
+transform = Transform3D(-0.996194, 0, -0.0871556, 0, 1, 0, 0.0871556, 0, -0.996194, 0.04, 0, -0.78)
+mesh = SubResource("BoxMesh_mkyjx")
+skeleton = NodePath("../..")
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 10.0
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

@@ -1,0 +1,71 @@
+[gd_scene load_steps=3 format=3 uid="uid://c1rl5cjsfvo68"]
+
+[ext_resource type="Script" path="res://scenes/main_menu.gd" id="1_sgl4v"]
+[ext_resource type="Texture2D" uid="uid://k4perix4p83k" path="res://assets/background_ss.png" id="2_vx6pp"]
+
+[node name="MainMenu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_sgl4v")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_vx6pp")
+flip_h = true
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="MainButtons" type="VBoxContainer" parent="HBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 5
+alignment = 1
+
+[node name="Practice" type="Button" parent="HBoxContainer/MainButtons"]
+custom_minimum_size = Vector2(150, 40)
+layout_mode = 2
+text = "Practice"
+
+[node name="Credits" type="Button" parent="HBoxContainer/MainButtons"]
+custom_minimum_size = Vector2(150, 40)
+layout_mode = 2
+text = "Credits"
+
+[node name="Quit" type="Button" parent="HBoxContainer/MainButtons"]
+custom_minimum_size = Vector2(150, 40)
+layout_mode = 2
+text = "Quit
+"
+
+[node name="Credits" type="VBoxContainer" parent="HBoxContainer"]
+visible = false
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="ScrollContainer" type="ScrollContainer" parent="HBoxContainer/Credits"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="Credits" type="Label" parent="HBoxContainer/Credits/ScrollContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 1
+text = "Credits"
+
+[connection signal="pressed" from="HBoxContainer/MainButtons/Practice" to="." method="_on_practice_pressed"]
+[connection signal="pressed" from="HBoxContainer/MainButtons/Credits" to="." method="_on_credits_pressed"]
+[connection signal="pressed" from="HBoxContainer/MainButtons/Quit" to="." method="_on_quit_pressed"]

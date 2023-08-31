@@ -1,0 +1,72 @@
+[gd_scene load_steps=4 format=3 uid="uid://dtcmvhg43k5dj"]
+
+[ext_resource type="Script" path="res://scenes/pins.gd" id="1_n0g4r"]
+[ext_resource type="PackedScene" uid="uid://v3pmenuylnhu" path="res://scenes/bowling_pin.tscn" id="2_1uepi"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_blyjp"]
+size = Vector3(1.7, 1, 9.05)
+
+[node name="Pins" type="Node3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.2, 8.85)
+script = ExtResource("1_n0g4r")
+
+[node name="BowlingPin4" parent="." instance=ExtResource("2_1uepi")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.15, 0, 0.3)
+max_contacts_reported = 2
+contact_monitor = true
+
+[node name="BowlingPin3" parent="." instance=ExtResource("2_1uepi")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.15, 0, 0.3)
+max_contacts_reported = 2
+contact_monitor = true
+
+[node name="BowlingPin7" parent="." instance=ExtResource("2_1uepi")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.45, 0, 0.900001)
+max_contacts_reported = 2
+contact_monitor = true
+
+[node name="BowlingPin8" parent="." instance=ExtResource("2_1uepi")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.15, 0, 0.900001)
+max_contacts_reported = 2
+contact_monitor = true
+
+[node name="BowlingPin9" parent="." instance=ExtResource("2_1uepi")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.15, 0, 0.9)
+max_contacts_reported = 2
+contact_monitor = true
+
+[node name="BowlingPin10" parent="." instance=ExtResource("2_1uepi")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.45, 0, 0.900001)
+max_contacts_reported = 2
+contact_monitor = true
+
+[node name="BowlingPin5" parent="." instance=ExtResource("2_1uepi")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.3, 0, 0.6)
+max_contacts_reported = 2
+contact_monitor = true
+
+[node name="BowlingPin6" parent="." instance=ExtResource("2_1uepi")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.3, 0, 0.6)
+max_contacts_reported = 2
+contact_monitor = true
+
+[node name="BowlingPin2" parent="." instance=ExtResource("2_1uepi")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.6)
+max_contacts_reported = 2
+contact_monitor = true
+
+[node name="BowlingPin" parent="." instance=ExtResource("2_1uepi")]
+max_contacts_reported = 2
+contact_monitor = true
+
+[node name="ResetTimer" type="Timer" parent="."]
+wait_time = 5.0
+
+[node name="Area3D" type="Area3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -2.9)
+shape = SubResource("BoxShape3D_blyjp")
+
+[connection signal="timeout" from="ResetTimer" to="." method="_on_reset_timer_timeout"]
+[connection signal="body_entered" from="Area3D" to="." method="_on_pin_area_body_entered"]
