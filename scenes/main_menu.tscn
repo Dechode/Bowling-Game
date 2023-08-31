@@ -66,6 +66,18 @@ size_flags_horizontal = 3
 size_flags_vertical = 1
 text = "Credits"
 
+[node name="Controls" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -40.0
+offset_bottom = 23.0
+grow_horizontal = 0
+text = "A and D to move sideways
+Left and Right arrows to rotate
+Spacebar to charge throw"
+
 [connection signal="pressed" from="HBoxContainer/MainButtons/Practice" to="." method="_on_practice_pressed"]
 [connection signal="pressed" from="HBoxContainer/MainButtons/Credits" to="." method="_on_credits_pressed"]
 [connection signal="pressed" from="HBoxContainer/MainButtons/Quit" to="." method="_on_quit_pressed"]
