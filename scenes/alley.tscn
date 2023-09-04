@@ -1,6 +1,6 @@
 [gd_scene load_steps=25 format=3 uid="uid://w0ewsvscrvg0"]
 
-[ext_resource type="PackedScene" uid="uid://bnvrnqg1ukdr" path="res://assets/bowling_lane.glb" id="1_hft12"]
+[ext_resource type="PackedScene" uid="uid://bnvrnqg1ukdr" path="res://assets/models/bowling_lane.glb" id="1_hft12"]
 [ext_resource type="Script" path="res://scenes/camera.gd" id="3_k0jbt"]
 [ext_resource type="PackedScene" uid="uid://iav4nlttqpim" path="res://scenes/ball.tscn" id="4_776ej"]
 [ext_resource type="PackedScene" uid="uid://dtcmvhg43k5dj" path="res://scenes/pins.tscn" id="5_tmo2k"]
@@ -184,20 +184,8 @@ ball = NodePath("../Ball")
 [node name="Ball" parent="." instance=ExtResource("4_776ej")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.43, 0.3, 9.35)
 
-[node name="Pins" parent="." instance=ExtResource("5_tmo2k")]
-transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 0.175, -9.05)
-
 [node name="Pins2" parent="." instance=ExtResource("5_tmo2k")]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -2.43, 0.175, -9.05)
-
-[node name="Pins3" parent="." instance=ExtResource("5_tmo2k")]
-transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -4.86, 0.175, -9.05)
-
-[node name="Pins4" parent="." instance=ExtResource("5_tmo2k")]
-transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -7.29, 0.175, -9.05)
-
-[node name="Pins5" parent="." instance=ExtResource("5_tmo2k")]
-transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -9.72, 0.175, -9.05)
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.32, 1.98, 4.14)
