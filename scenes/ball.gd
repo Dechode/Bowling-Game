@@ -47,7 +47,7 @@ func _physics_process(delta: float) -> void:
 	
 	if Input.is_action_just_released("launch") and not launched:
 		throwing_force = -transform.basis.z * max_throw_force * throw_multiplier
-		throwing_force.y = 0.5 * abs(throwing_force.z)
+		throwing_force.y = 0.25 * abs(throwing_force.z)
 		
 		launched = true
 		freeze = false
