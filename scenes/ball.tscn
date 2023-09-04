@@ -1,6 +1,7 @@
-[gd_scene load_steps=15 format=3 uid="uid://iav4nlttqpim"]
+[gd_scene load_steps=16 format=3 uid="uid://iav4nlttqpim"]
 
 [ext_resource type="Script" path="res://scenes/ball.gd" id="1_ju1um"]
+[ext_resource type="AudioStream" uid="uid://f56fqv18cn0d" path="res://assets/sounds/qubodup-bowling-roll/qubodup-bowling_roll-nofadeout.ogg" id="2_8ol35"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_6uoiw"]
 
@@ -68,6 +69,8 @@ size = Vector3(0.01, 0.01, 0.95)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.3, 0)
 mass = 7.0
 physics_material_override = SubResource("PhysicsMaterial_6uoiw")
+max_contacts_reported = 2
+contact_monitor = true
 script = ExtResource("1_ju1um")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
@@ -92,5 +95,8 @@ skeleton = NodePath("../..")
 
 [node name="Timer" type="Timer" parent="."]
 wait_time = 10.0
+
+[node name="AudioStreamPlayer3D" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_8ol35")
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

@@ -1,13 +1,14 @@
 class_name BowlingBall
 extends RigidBody3D
 
-
 var launched := false
 var throw_multiplier := 0.0
 var throwing_force := Vector3.ZERO
 
 var init_pos := Vector3.ZERO
 var thrower := {}
+
+@onready var timer := $Timer
 
 
 func _ready() -> void:
@@ -18,6 +19,12 @@ func _ready() -> void:
 
 func _physics_process(delta: float) -> void:
 	if launched:
+		if get_contact_count() <= 0:
+			$AudioStreamPlayer3D.stop()
+			return
+		else:
+			play_rolling_sound(linear_velocity.length())
+		
 		return
 	
 	var rot_speed := 0.05
@@ -46,7 +53,7 @@ func _physics_process(delta: float) -> void:
 		freeze = false
 		$ArrowMesh.visible = false
 		apply_central_impulse(throwing_force)
-		$Timer.start()
+		timer.start()
 
 
 func reset():
@@ -56,8 +63,24 @@ func reset():
 	throw_multiplier = 0.0
 	rotation = Vector3.ZERO
 	$ArrowMesh.visible = true
-	$Timer.stop()
+	timer.stop()
+	$AudioStreamPlayer3D.stop()
 
 
 func _on_timer_timeout() -> void:
 	reset()
+
+
+func play_rolling_sound(speed):
+	if linear_velocity.length() < 1.0:
+		$AudioStreamPlayer3D.stop()
+		return
+	
+	var mult := clampf(speed / 12.0, 0.01, 1.0)
+	var volume := linear_to_db(mult)
+	$AudioStreamPlayer3D.volume_db = volume
+	$AudioStreamPlayer3D.pitch_scale = clampf(mult, 0.75, 1.0)
+	
+	if not $AudioStreamPlayer3D.playing:
+		$AudioStreamPlayer3D.play()
+	
