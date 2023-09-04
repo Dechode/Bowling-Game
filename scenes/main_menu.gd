@@ -62,6 +62,7 @@ func _on_quit_pressed() -> void:
 func _on_credits_pressed() -> void:
 	credits.visible = not credits.visible
 	$Controls.visible = not $Controls.visible
+	$Title.visible = not $Title.visible
 
 
 func _on_practice_pressed() -> void:

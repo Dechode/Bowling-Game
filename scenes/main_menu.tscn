@@ -1,7 +1,16 @@
-[gd_scene load_steps=3 format=3 uid="uid://c1rl5cjsfvo68"]
+[gd_scene load_steps=4 format=3 uid="uid://c1rl5cjsfvo68"]
 
 [ext_resource type="Script" path="res://scenes/main_menu.gd" id="1_sgl4v"]
 [ext_resource type="Texture2D" uid="uid://k4perix4p83k" path="res://assets/background_ss.png" id="2_vx6pp"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_6tvan"]
+font_size = 40
+font_color = Color(0.74902, 0.741176, 0, 1)
+outline_size = 4
+outline_color = Color(0.462745, 0.160784, 0, 1)
+shadow_size = 4
+shadow_color = Color(0, 0, 0, 1)
+shadow_offset = Vector2(4.4, 3.41)
 
 [node name="MainMenu" type="Control"]
 layout_mode = 3
@@ -21,6 +30,19 @@ grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("2_vx6pp")
 flip_h = true
+
+[node name="Title" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -141.0
+offset_top = 113.0
+offset_right = 141.0
+offset_bottom = 171.0
+grow_horizontal = 2
+text = "PinPal Bowling"
+label_settings = SubResource("LabelSettings_6tvan")
 
 [node name="HBoxContainer" type="HBoxContainer" parent="."]
 layout_mode = 1
