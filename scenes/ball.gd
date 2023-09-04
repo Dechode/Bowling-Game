@@ -6,7 +6,7 @@ var throw_multiplier := 0.0
 var throwing_force := Vector3.ZERO
 
 var init_pos := Vector3.ZERO
-var thrower := {}
+var thrower: Player = null
 
 @onready var timer := $Timer
 
@@ -29,7 +29,7 @@ func _physics_process(delta: float) -> void:
 	
 	var rot_speed := 0.05
 	var move_speed := 1.0
-	var max_throw_force := 80.0
+	var max_throw_force := 85.0
 	
 	if Input.is_action_pressed("turn_left"):
 		rotation.y += rot_speed * delta
@@ -47,12 +47,13 @@ func _physics_process(delta: float) -> void:
 	
 	if Input.is_action_just_released("launch") and not launched:
 		throwing_force = -transform.basis.z * max_throw_force * throw_multiplier
-		throwing_force.y = 0.25 * abs(throwing_force.z)
+		throwing_force.y = 0.1 * abs(throwing_force.z)
 		
 		launched = true
 		freeze = false
 		$ArrowMesh.visible = false
 		apply_central_impulse(throwing_force)
+		throw_multiplier = 0.0
 		timer.start()
 		thrower.throws += 1
 
