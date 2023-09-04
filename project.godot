@@ -57,6 +57,7 @@ move_right={
 3d/physics_engine="GodotPhysics3D"
 3d/default_linear_damp=0.05
 3d/default_angular_damp=0.05
+3d/solver/solver_iterations=32
 
 [rendering]
 
