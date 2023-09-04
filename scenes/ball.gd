@@ -54,6 +54,7 @@ func _physics_process(delta: float) -> void:
 		$ArrowMesh.visible = false
 		apply_central_impulse(throwing_force)
 		timer.start()
+		thrower.throws += 1
 
 
 func reset():
