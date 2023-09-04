@@ -291,7 +291,7 @@ offset_bottom = 23.0
 grow_horizontal = 0
 text = "Score: "
 
-[node name="StrikeText" type="Label" parent="UI"]
+[node name="ScorePopUp" type="Label" parent="UI"]
 visible = false
 layout_mode = 1
 anchors_preset = 8
@@ -308,28 +308,7 @@ grow_vertical = 2
 text = "Strike!"
 label_settings = SubResource("LabelSettings_61w6a")
 
-[node name="Timer" type="Timer" parent="UI/StrikeText"]
-wait_time = 2.0
-one_shot = true
-
-[node name="SpareText" type="Label" parent="UI"]
-visible = false
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -20.0
-offset_top = -11.5
-offset_right = 20.0
-offset_bottom = 11.5
-grow_horizontal = 2
-grow_vertical = 2
-text = "Spare!"
-label_settings = SubResource("LabelSettings_61w6a")
-
-[node name="Timer" type="Timer" parent="UI/SpareText"]
+[node name="Timer" type="Timer" parent="UI/ScorePopUp"]
 wait_time = 2.0
 one_shot = true
 
@@ -361,7 +340,6 @@ mesh = SubResource("BoxMesh_77ajd")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.03, 0.28, -9.89)
 mesh = SubResource("BoxMesh_77ajd")
 
-[connection signal="timeout" from="UI/StrikeText/Timer" to="UI" method="_on_strike_text_timer_timeout"]
-[connection signal="timeout" from="UI/SpareText/Timer" to="UI" method="_on_spare_text_timer_timeout"]
+[connection signal="timeout" from="UI/ScorePopUp/Timer" to="UI" method="_on_score_popup_timer_timeout"]
 
 [editable path="bowling_lane"]

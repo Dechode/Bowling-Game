@@ -16,19 +16,11 @@ func _process(delta: float) -> void:
 	$Score.text = "Score: %d" % ball.thrower.score
 
 
-func show_strike():
-	$StrikeText.show()
-	$StrikeText/Timer.start()
+func show_score(score: String):
+	$ScorePopUp.text = score
+	$ScorePopUp.show()
+	$ScorePopUp/Timer.start()
 
 
-func show_spare():
-	$SpareText.show()
-	$SpareText/Timer.start()
-
-
-func _on_strike_text_timer_timeout() -> void:
-	$StrikeText.hide()
-
-
-func _on_spare_text_timer_timeout() -> void:
-	$SpareText.hide()
+func _on_score_popup_timer_timeout() -> void:
+	$ScorePopUp.hide()

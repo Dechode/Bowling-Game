@@ -64,9 +64,6 @@ func add_player(player):
 	players.append(player)
 
 
-func ui_show_spare_screen():
-	ui.show_spare()
+func ui_show_score(score):
+	ui.show_score(score)
 
-
-func ui_show_strike_screen():
-	ui.show_strike()

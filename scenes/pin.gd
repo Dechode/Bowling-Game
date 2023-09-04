@@ -21,7 +21,6 @@ func _ready() -> void:
 	for path in hit_sound_paths:
 		sound_streams[i] = load(path)
 		i += 1
-	
 
 
 func _process(delta: float) -> void:
@@ -40,8 +39,7 @@ func _physics_process(delta: float) -> void:
 
 
 func _on_body_entered(body: Node) -> void:
-#	if body is BowlingBall or body is BowlingPin:
-	if delta_vel > 0.005 and not $AudioStreamPlayer.playing:
+	if delta_vel > 0.01 and not $AudioStreamPlayer.playing:
 		print_debug("Pin hit!")
 		$AudioStreamPlayer.stream = sound_streams.pick_random()
 		$AudioStreamPlayer.volume_db = linear_to_db(clampf(delta_vel / 0.2, 0.1, 1.0))

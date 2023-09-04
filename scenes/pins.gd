@@ -33,9 +33,11 @@ func reset_pins():
 	
 	if fallen_count == 10:
 		ball.thrower.score += 30
-		GameManager.ui_show_strike_screen()
+		GameManager.ui_show_score("Strike!")
 	else:
 		ball.thrower.score += fallen_count
+		GameManager.ui_show_score("%d" % fallen_count)
+		
 
 
 func _on_reset_timer_timeout() -> void:
