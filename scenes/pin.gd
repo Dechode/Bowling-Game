@@ -31,7 +31,7 @@ func _process(delta: float) -> void:
 		if not ray.is_colliding():
 			fallen = true
 		else:
-			if abs(transform.basis.y.dot(Vector3.UP)) < 0.85:
+			if abs(transform.basis.y.dot(Vector3.UP)) < 0.90:
 				fallen = true
 
 
@@ -41,7 +41,8 @@ func _physics_process(delta: float) -> void:
 
 
 func _on_body_entered(body: Node) -> void:
-	if delta_vel > 0.01 and not $AudioStreamPlayer.playing:
+#	if delta_vel > 0.01 and not $AudioStreamPlayer.playing:
+	if delta_vel > 0.01:
 #		print_debug("Pin hit!")
 		$AudioStreamPlayer.stream = sound_streams.pick_random()
 		$AudioStreamPlayer.volume_db = linear_to_db(clampf(delta_vel / 0.2, 0.1, 1.0))
@@ -51,7 +52,4 @@ func _on_body_entered(body: Node) -> void:
 func set_active(p_active):
 	active = p_active
 	visible = p_active
-#	freeze = not p_active
-#	sleeping = not p_active
-#	fallen = false
 	$CollisionShape3D.disabled = not p_active

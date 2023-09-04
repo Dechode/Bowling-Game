@@ -25,7 +25,6 @@ func reset_pins():
 			fallen_pins.clear()
 			var i := 0
 			for pin in pins:
-				pin.visible = true
 				if pin.fallen:
 					fallen_pins.append(pin)
 					pin.set_active(false)
@@ -41,10 +40,10 @@ func reset_pins():
 			if fallen_pins.size() == 10:
 				ball.thrower.score += 30
 				GameManager.ui_show_score("Strike!")
+				GameManager.frames += 1
 				ball.thrower.throws = 0
 				for pin in pins:
 					pin.set_active(true)
-					pin.visible = true
 			else:
 				ball.thrower.score += fallen_pins.size()
 				GameManager.ui_show_score("%d" % fallen_pins.size())
@@ -77,6 +76,7 @@ func reset_pins():
 				GameManager.ui_show_score("%d" % fallen2)
 				
 			fallen_pins.clear()
+			GameManager.frames += 1
 
 
 func _on_reset_timer_timeout() -> void:

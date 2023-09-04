@@ -14,6 +14,7 @@ func _ready() -> void:
 func _process(delta: float) -> void:
 	$ProgressBar.value = ball.throw_multiplier * 100.0
 	$Score.text = "Score: %d" % ball.thrower.score
+	$FrameLabel.text = "Frame: %d" % [GameManager.frames]
 
 
 func show_score(score: String):

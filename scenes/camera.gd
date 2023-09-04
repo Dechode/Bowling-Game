@@ -34,5 +34,4 @@ func _physics_process(delta: float) -> void:
 	look_at_pos.y = 0.25
 	look_at(look_at_pos)
 	
-	
 	prev_pos = position

@@ -1,4 +1,4 @@
-[gd_scene load_steps=25 format=3 uid="uid://w0ewsvscrvg0"]
+[gd_scene load_steps=29 format=3 uid="uid://w0ewsvscrvg0"]
 
 [ext_resource type="PackedScene" uid="uid://bnvrnqg1ukdr" path="res://assets/models/bowling_lane.glb" id="1_hft12"]
 [ext_resource type="Script" path="res://scenes/camera.gd" id="3_k0jbt"]
@@ -37,6 +37,21 @@ tonemap_mode = 2
 [sub_resource type="CameraAttributesPractical" id="CameraAttributesPractical_ixl4n"]
 exposure_multiplier = 1.28
 auto_exposure_max_sensitivity = 234.5
+
+[sub_resource type="Gradient" id="Gradient_2iwor"]
+colors = PackedColorArray(1, 1, 1, 0, 1, 1, 1, 0)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_7bt3c"]
+gradient = SubResource("Gradient_2iwor")
+height = 128
+
+[sub_resource type="Gradient" id="Gradient_qfu4a"]
+offsets = PackedFloat32Array(0, 0.183486, 0.811927, 1)
+colors = PackedColorArray(0.509804, 0, 0.168627, 1, 1, 0, 0, 1, 1, 0, 0.0747664, 1, 0.509804, 0, 0.168627, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_g72bh"]
+gradient = SubResource("Gradient_qfu4a")
+height = 128
 
 [sub_resource type="LabelSettings" id="LabelSettings_61w6a"]
 font_size = 43
@@ -268,18 +283,23 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("6_m8vl5")
 
-[node name="ProgressBar" type="ProgressBar" parent="UI"]
+[node name="ProgressBar" type="TextureProgressBar" parent="UI"]
 custom_minimum_size = Vector2(100, 0)
 layout_mode = 1
-anchors_preset = 3
-anchor_left = 1.0
-anchor_top = 1.0
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = -4.0
-offset_top = -27.0
-grow_horizontal = 0
-grow_vertical = 0
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 142.0
+offset_top = -121.0
+offset_right = 242.0
+offset_bottom = 7.0
+grow_horizontal = 2
+grow_vertical = 2
+fill_mode = 3
+texture_under = SubResource("GradientTexture2D_7bt3c")
+texture_progress = SubResource("GradientTexture2D_g72bh")
 
 [node name="Score" type="Label" parent="UI"]
 layout_mode = 1
@@ -289,7 +309,7 @@ anchor_right = 1.0
 offset_left = -40.0
 offset_bottom = 23.0
 grow_horizontal = 0
-text = "Score: "
+text = "Score: 69"
 
 [node name="ScorePopUp" type="Label" parent="UI"]
 visible = false
@@ -311,6 +331,17 @@ label_settings = SubResource("LabelSettings_61w6a")
 [node name="Timer" type="Timer" parent="UI/ScorePopUp"]
 wait_time = 2.0
 one_shot = true
+
+[node name="FrameLabel" type="Label" parent="UI"]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -149.0
+offset_right = -82.0
+offset_bottom = 26.0
+grow_horizontal = 0
+text = "Frame: 1"
 
 [node name="MeshInstance3D2" type="MeshInstance3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.86, 2.2, -9.95)
