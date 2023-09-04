@@ -12,52 +12,32 @@ script = ExtResource("1_n0g4r")
 
 [node name="BowlingPin4" parent="." instance=ExtResource("2_1uepi")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.15, 0, 0.3)
-max_contacts_reported = 2
-contact_monitor = true
 
 [node name="BowlingPin3" parent="." instance=ExtResource("2_1uepi")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.15, 0, 0.3)
-max_contacts_reported = 2
-contact_monitor = true
 
 [node name="BowlingPin7" parent="." instance=ExtResource("2_1uepi")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.45, 0, 0.900001)
-max_contacts_reported = 2
-contact_monitor = true
 
 [node name="BowlingPin8" parent="." instance=ExtResource("2_1uepi")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.15, 0, 0.900001)
-max_contacts_reported = 2
-contact_monitor = true
 
 [node name="BowlingPin9" parent="." instance=ExtResource("2_1uepi")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.15, 0, 0.9)
-max_contacts_reported = 2
-contact_monitor = true
 
 [node name="BowlingPin10" parent="." instance=ExtResource("2_1uepi")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.45, 0, 0.900001)
-max_contacts_reported = 2
-contact_monitor = true
 
 [node name="BowlingPin5" parent="." instance=ExtResource("2_1uepi")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.3, 0, 0.6)
-max_contacts_reported = 2
-contact_monitor = true
 
 [node name="BowlingPin6" parent="." instance=ExtResource("2_1uepi")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.3, 0, 0.6)
-max_contacts_reported = 2
-contact_monitor = true
 
 [node name="BowlingPin2" parent="." instance=ExtResource("2_1uepi")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.6)
-max_contacts_reported = 2
-contact_monitor = true
 
 [node name="BowlingPin" parent="." instance=ExtResource("2_1uepi")]
-max_contacts_reported = 2
-contact_monitor = true
 
 [node name="ResetTimer" type="Timer" parent="."]
 wait_time = 5.0

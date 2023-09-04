@@ -1,7 +1,8 @@
-[gd_scene load_steps=8 format=3 uid="uid://v3pmenuylnhu"]
+[gd_scene load_steps=9 format=3 uid="uid://v3pmenuylnhu"]
 
 [ext_resource type="Script" path="res://scenes/pin.gd" id="1_lduwb"]
-[ext_resource type="Texture2D" uid="uid://daijhypywk2dc" path="res://assets/bowling_pin_color_palette8x8.png" id="2_f2t3a"]
+[ext_resource type="Texture2D" uid="uid://daijhypywk2dc" path="res://assets/models/bowling_pin_color_palette8x8.png" id="2_f2t3a"]
+[ext_resource type="AudioStream" uid="uid://d6l4vqi72wpb" path="res://assets/sounds/RPGsounds_Kenney/OGG/footstep04.ogg" id="3_fqet6"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_crglo"]
 friction = 0.65
@@ -52,10 +53,13 @@ shadow_mesh = SubResource("ArrayMesh_ihye2")
 [node name="BowlingPin" type="RigidBody3D"]
 mass = 1.5
 physics_material_override = SubResource("PhysicsMaterial_crglo")
+max_contacts_reported = 2
+contact_monitor = true
 freeze_mode = 1
 script = ExtResource("1_lduwb")
+hit_sound_paths = ["res://assets/sounds/RPGsounds_Kenney/OGG/chop.ogg", "res://assets/sounds/RPGsounds_Kenney/OGG/doorClose_4.ogg", "res://assets/sounds/RPGsounds_Kenney/OGG/dropLeather.ogg", "res://assets/sounds/RPGsounds_Kenney/OGG/footstep00.ogg", "res://assets/sounds/RPGsounds_Kenney/OGG/footstep01.ogg", "res://assets/sounds/RPGsounds_Kenney/OGG/footstep02.ogg", "res://assets/sounds/RPGsounds_Kenney/OGG/footstep03.ogg", "res://assets/sounds/RPGsounds_Kenney/OGG/footstep04.ogg", "res://assets/sounds/RPGsounds_Kenney/OGG/footstep06.ogg", "res://assets/sounds/RPGsounds_Kenney/OGG/footstep05.ogg", "res://assets/sounds/RPGsounds_Kenney/OGG/footstep07.ogg", "res://assets/sounds/RPGsounds_Kenney/OGG/footstep08.ogg", "res://assets/sounds/RPGsounds_Kenney/OGG/footstep09.ogg"]
 
-[node name="CollisionShape3D2" type="CollisionShape3D" parent="."]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.130249, 0)
 shape = SubResource("ConvexPolygonShape3D_ttiw6")
 
@@ -69,3 +73,8 @@ skeleton = NodePath("")
 [node name="RayCast3D" type="RayCast3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.0844625, 0)
 target_position = Vector3(0, -0.05, 0)
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer3D" parent="."]
+stream = ExtResource("3_fqet6")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
