@@ -49,6 +49,7 @@ func _on_pin_area_body_entered(body: Node3D) -> void:
 		ball = body
 		if $ResetTimer.is_stopped():
 			$ResetTimer.start()
+			ball.timer.stop()
 	
 		for pin in pins:
 			pin.freeze = false

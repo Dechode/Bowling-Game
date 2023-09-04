@@ -3,7 +3,7 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://bakgwfl47ug0q"
-path="res://.godot/imported/bowling_lane_color_palette8x8.png-3a1b7b835e58a76da56c99283fa106b7.ctex"
+path="res://.godot/imported/bowling_lane_color_palette8x8.png-5f5bb26380652db72a16470eb92f69e5.ctex"
 metadata={
 "vram_texture": false
 }
@@ -11,8 +11,8 @@ generator_parameters={}
 
 [deps]
 
-source_file="res://assets/bowling_lane_color_palette8x8.png"
-dest_files=["res://.godot/imported/bowling_lane_color_palette8x8.png-3a1b7b835e58a76da56c99283fa106b7.ctex"]
+source_file="res://assets/models/bowling_lane_color_palette8x8.png"
+dest_files=["res://.godot/imported/bowling_lane_color_palette8x8.png-5f5bb26380652db72a16470eb92f69e5.ctex"]
 
 [params]
 

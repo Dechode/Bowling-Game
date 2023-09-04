@@ -4,12 +4,12 @@ importer="scene"
 importer_version=1
 type="PackedScene"
 uid="uid://w602jvem43r7"
-path="res://.godot/imported/ditch_collision.glb-fde16bd91a7a958fa366b129cb237d5b.scn"
+path="res://.godot/imported/ditch_collision.glb-563970da17a35b6119a4fa419c77cda6.scn"
 
 [deps]
 
-source_file="res://assets/ditch_collision.glb"
-dest_files=["res://.godot/imported/ditch_collision.glb-fde16bd91a7a958fa366b129cb237d5b.scn"]
+source_file="res://assets/models/ditch_collision.glb"
+dest_files=["res://.godot/imported/ditch_collision.glb-563970da17a35b6119a4fa419c77cda6.scn"]
 
 [params]
 

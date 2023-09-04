@@ -3,13 +3,13 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://cvyuwl0fmq8uy"
-path="res://.godot/imported/bowling_pin.glb-61ad001a0c730e43ee4b922432411665.scn"
+uid="uid://bnvrnqg1ukdr"
+path="res://.godot/imported/bowling_lane.glb-153f25da7a763fb39c975ebe39cfc6d3.scn"
 
 [deps]
 
-source_file="res://assets/bowling_pin.glb"
-dest_files=["res://.godot/imported/bowling_pin.glb-61ad001a0c730e43ee4b922432411665.scn"]
+source_file="res://assets/models/bowling_lane.glb"
+dest_files=["res://.godot/imported/bowling_lane.glb-153f25da7a763fb39c975ebe39cfc6d3.scn"]
 
 [params]
 
@@ -18,7 +18,7 @@ nodes/root_name="Scene Root"
 nodes/apply_root_scale=true
 nodes/root_scale=1.0
 meshes/ensure_tangents=true
-meshes/generate_lods=true
+meshes/generate_lods=false
 meshes/create_shadow_meshes=true
 meshes/light_baking=1
 meshes/lightmap_texel_size=0.2
