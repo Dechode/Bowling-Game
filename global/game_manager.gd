@@ -10,6 +10,7 @@ enum GAME_MODE {
 var game_mode := GAME_MODE.NOT_PLAYING
 var players := []
 var ui: UI = null
+var pins = null
 
 
 #func _process(delta: float) -> void:

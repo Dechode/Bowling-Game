@@ -15,6 +15,8 @@ func _ready() -> void:
 			pin_positions[i] = child.position
 			pins.append(child)
 			i += 1
+	
+	GameManager.pins = self
 
 
 func reset_pins():

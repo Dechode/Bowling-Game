@@ -70,6 +70,7 @@ func reset():
 
 func _on_timer_timeout() -> void:
 	reset()
+	GameManager.pins.reset_pins()
 
 
 func play_rolling_sound(speed):
