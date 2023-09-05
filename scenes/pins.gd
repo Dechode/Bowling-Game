@@ -40,8 +40,9 @@ func reset_pins():
 			if fallen_pins.size() == 10:
 				ball.thrower.score += 30
 				GameManager.ui_show_score("Strike!")
-				GameManager.frames += 1
+				GameManager.advance_frame()
 				ball.thrower.throws = 0
+				
 				for pin in pins:
 					pin.set_active(true)
 			else:
@@ -76,7 +77,8 @@ func reset_pins():
 				GameManager.ui_show_score("%d" % fallen2)
 				
 			fallen_pins.clear()
-			GameManager.frames += 1
+			
+			GameManager.advance_frame()
 
 
 func _on_reset_timer_timeout() -> void:

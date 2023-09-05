@@ -64,3 +64,12 @@ func add_player(player: Player):
 func ui_show_score(score):
 	ui.show_score(score)
 
+
+func advance_frame():
+	if frames >= 10:
+		print_debug("Game ended")
+		get_tree().change_scene_to_file("res://scenes/main_menu.tscn")
+		return
+		
+	frames += 1
+
