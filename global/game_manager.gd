@@ -61,7 +61,18 @@ func add_player(player: Player):
 	players.append(player)
 
 
+func ui_show_game_end_screen(score):
+	if not ui:
+		push_error("No ui set")
+		return
+	
+
+
 func ui_show_score(score):
+	if not ui:
+		push_error("No ui set")
+		return
+	
 	ui.show_score(score)
 
 
